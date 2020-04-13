@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showln="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/navigationHome"
+            android:icon="@drawable/ic_home"
+            android:title="@string/home" />
+
+        <item
+            android:id="@+id/navigationSearch"
+            android:icon="@drawable/ic_search"
+            android:title="@string/pesquisar" />
+
+        <item
+            android:id="@+id/navigationDonate"
+            android:icon="@drawable/ic_donate"
+            android:title="@string/doacao" />
+
+        <item
+            android:id="@+id/navigationPerfil"
+            android:icon="@drawable/ic_person"
+            android:title="@string/perfil" />
+
+    </group>
+
+</menu>

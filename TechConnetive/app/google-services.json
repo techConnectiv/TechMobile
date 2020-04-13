@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "99597698498",
+    "firebase_url": "https://techconnectiveauth-31925.firebaseio.com",
+    "project_id": "techconnectiveauth-31925",
+    "storage_bucket": "techconnectiveauth-31925.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99597698498:android:8f3f487546d40b97f8425b",
+        "android_client_info": {
+          "package_name": "techconnective.herokuapp.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99597698498-47115vv2rv49ofmp2ftburkit2t1n1do.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdyhbQWPN989IU4LNG0cjUVSR9NxX6yUw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "99597698498-47115vv2rv49ofmp2ftburkit2t1n1do.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

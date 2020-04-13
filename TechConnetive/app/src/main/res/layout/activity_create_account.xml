@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="vertical">
+
+<!--        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="50dp"
+            android:text="TechConnective" />-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:text="Criar uma conta" />
+
+
+        <EditText
+            android:id="@+id/et_name_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/login_edit_background"
+            android:drawableStart="@drawable/ic_person"
+            android:drawablePadding="20dp"
+            android:hint="Nome de usuário"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/et_email_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/login_edit_background"
+            android:drawableStart="@drawable/ic_email"
+            android:drawablePadding="20dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/et_pass_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/login_edit_background"
+            android:drawableStart="@drawable/ic_person"
+            android:drawablePadding="20dp"
+            android:inputType="textPassword"
+            android:hint="Senha"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/et_re_pass_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/login_edit_background"
+            android:drawableStart="@drawable/ic_password"
+            android:drawablePadding="20dp"
+            android:hint="Confirmar senha"
+            android:inputType="textPassword"
+            android:padding="10dp" />
+
+        <Button
+            android:id="@+id/btn_create_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/button_background"
+            android:text="Cadastrar" />
+
+        <TextView
+            android:id="@+id/tv_btn_login_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="10dp"
+            android:text="Ja tenho uma conta" />
+
+    </LinearLayout>
+</RelativeLayout>

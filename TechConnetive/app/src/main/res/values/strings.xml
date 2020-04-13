@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">TechConnetive</string>
+    <string name="home">Inicio</string>
+    <string name="pesquisar">Pesquisar</string>
+    <string name="doacao">Doação</string>
+    <string name="perfil">Perfil</string>
+    <string name="ongs">Ongs e eventos</string>
+    <string name="textevent">Eventos que estão acontecendo perto de você:</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string-array name="event_ongs">
+        <item>Ong 1</item>
+        <item>Ong 2</item>
+        <item>Ong 3</item>
+        <item>Ong 4</item>
+        <item>Ong 5</item>
+        <item>Ong 6</item>
+        <item>Ong 7</item>
+        <item>Ong 8</item>
+        <item>Ong 9</item>
+        <item>Ong 10</item>
+    </string-array>
+
+    <string-array name="description">
+        <item> Descrição resumida </item>
+        <item> Descrição resumida </item>
+        <item> Descrição resumida </item>
+        <item> Descrição resumida </item>
+        <item> Descrição resumida </item>
+        <item> Descrição resumida </item>
+        <item> Descrição resumida </item>
+        <item> Descrição resumida </item>
+        <item> Descrição resumida </item>
+        <item> Descrição resumida </item>
+    </string-array>
+</resources>

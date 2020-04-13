@@ -1,0 +1,70 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#FFFFFF</item>
+        <item name="colorPrimaryDark">#FFFFFF</item>
+        <item name="colorAccent">#FFFFFF</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar"></style>
+
+    <style name="LoginPage" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#82B8DF</item>
+        <item name="colorPrimaryDark">#82B8DF</item>
+        <item name="colorAccent">#82B8DF</item>
+    </style>
+
+    <style name="ForgotPasswordPage" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#82B8DF</item>
+        <item name="colorPrimaryDark">#82B8DF</item>
+        <item name="colorAccent">#82B8DF</item>
+    </style>
+
+    <style name="CreatAccountPage" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#82B8DF</item>
+        <item name="colorPrimaryDark">#82B8DF</item>
+        <item name="colorAccent">#82B8DF</item>
+    </style>
+
+    <style name="MenuPage" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#82B8DF</item>
+        <item name="colorPrimaryDark">#82B8DF</item>
+        <item name="colorAccent">#82B8DF</item>
+    </style>
+
+    <style name="HomePage" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#FFFFFF</item>
+        <item name="colorPrimaryDark">#FFFFFF</item>
+        <item name="colorAccent">#FFFFFF</item>
+    </style>
+
+    <style name="SearchPage" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#82B8DF</item>
+        <item name="colorPrimaryDark">#82B8DF</item>
+        <item name="colorAccent">#82B8DF</item>
+    </style>
+
+    <style name="DonatePage" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#82B8DF</item>
+        <item name="colorPrimaryDark">#82B8DF</item>
+        <item name="colorAccent">#82B8DF</item>
+    </style>
+
+    <style name="ProfilePage" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#82B8DF</item>
+        <item name="colorPrimaryDark">#82B8DF</item>
+        <item name="colorAccent">#82B8DF</item>
+    </style>
+
+
+</resources>
