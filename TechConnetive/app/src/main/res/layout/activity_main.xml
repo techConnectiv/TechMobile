@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/mainLayout"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -25,9 +26,7 @@
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/logo">
-
-        </ImageView>
+            android:src="@drawable/logo"/>
 
         <EditText
             android:id="@+id/login_user_name"

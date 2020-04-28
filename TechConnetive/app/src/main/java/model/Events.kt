@@ -11,73 +11,45 @@ class EventsBuilder {
     var hora: String = ""
     var data: String = ""
 
-    fun build() : Events = Events(nomeOng, hora, data)
+    fun build(): Events = Events(nomeOng, hora, data)
 }
 
 fun events(block: EventsBuilder.() -> Unit): Events = EventsBuilder().apply(block).build()
 
 fun fakeEvents(): MutableList<Events> = mutableListOf(
     events {
-        nomeOng = "Covid-19"
-        hora = "11hrs - 16hrs"
-        data = "Domingo - 15/04/2020"
+        nomeOng = "Cuidados com a sáude"
+        hora = "09hrs - 21hrs"
+        data = "Quarta-feira - 29/04/2020"
     },
 
     events {
-        nomeOng = "Covid-19"
+        nomeOng = "Arrecadação"
         hora = "11hrs - 16hrs"
-        data = "Domingo - 15/04/2020"
+        data = "Domingo - 03/05/2020"
     },
 
     events {
-        nomeOng = "Covid-19"
-        hora = "11hrs - 16hrs"
-        data = "Domingo - 15/04/2020"
+        nomeOng = "Distribuição de sopa"
+        hora = "11hrs - 14hrs"
+        data = "Todos os dias"
     },
 
     events {
-        nomeOng = "Covid-19"
-        hora = "11hrs - 16hrs"
-        data = "Domingo - 15/04/2020"
+        nomeOng = "Voluntariado"
+        hora = "08hrs - 18hrs"
+        data = "Terça-feira - 05/05/2020"
     },
 
     events {
-        nomeOng = "Covid-19"
-        hora = "11hrs - 16hrs"
-        data = "Domingo - 15/04/2020"
-    },
-    events {
-        nomeOng = "Covid-19"
-        hora = "11hrs - 16hrs"
-        data = "Domingo - 15/04/2020"
+        nomeOng = "Arrecadação"
+        hora = "08hrs - 18hrs"
+        data = "Todos os dias"
     },
 
     events {
-        nomeOng = "Covid-19"
-        hora = "11hrs - 16hrs"
-        data = "Domingo - 15/04/2020"
-    },
-
-    events {
-        nomeOng = "Covid-19"
-        hora = "11hrs - 16hrs"
-        data = "Domingo - 15/04/2020"
-    },
-    events {
-        nomeOng = "Covid-19"
-        hora = "11hrs - 16hrs"
-        data = "Domingo - 15/04/2020"
-    },
-    events {
-        nomeOng = "Covid-19"
-        hora = "11hrs - 16hrs"
-        data = "Domingo - 15/04/2020"
-    },
-
-    events {
-        nomeOng = "Covid-19"
-        hora = "11hrs - 16hrs"
-        data = "Domingo - 15/04/2020"
+        nomeOng = "Visita Albert Einstein"
+        hora = "09hrs - 18hrs"
+        data = "Domingo - 03/05/2020"
     }
-
 )

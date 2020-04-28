@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#D5D5D5">
 
 
     <com.google.android.material.appbar.AppBarLayout
@@ -43,7 +44,8 @@
             android:layout_marginTop="3dp"
             android:gravity="center"
             android:layout_gravity="center"
-            android:text="Eventos que estão acontecendo perto de você:" />
+            android:text="Eventos que estão acontecendo perto de você:"
+            android:layout_marginBottom="10dp"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 

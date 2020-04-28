@@ -3,8 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/cardview_bg"
-    tools:showIn="@layout/fragment_home">
+    tools:showIn="@layout/fragment_home"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="5dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -22,7 +25,7 @@
             android:layout_marginBottom="5dp"
             android:background="@drawable/cyrcler"
             android:gravity="center"
-            android:src="@drawable/logo" />
+            android:src="@drawable/latter_b" />
 
         <TextView
             android:id="@+id/txt_user"
