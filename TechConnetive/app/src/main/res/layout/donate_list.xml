@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/eventClick"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="5dp"
+    app:cardPreventCornerOverlap="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="15dp">
+
+        <TextView
+            android:id="@+id/txt_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="..."
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/txt_hora"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_user"
+            android:layout_alignStart="@id/txt_user"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:text="11hrs - 16hrs"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/txt_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_hora"
+            android:layout_alignStart="@id/txt_user"
+            android:layout_marginEnd="20dp"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:text="Domingo - 15/04/2020"
+            android:textSize="15dp" />
+
+        <ImageView
+            android:id="@+id/txt_enter"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:src="@drawable/ic_next" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

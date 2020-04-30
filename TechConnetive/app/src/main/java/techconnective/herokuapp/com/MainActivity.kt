@@ -1,24 +1,17 @@
 package techconnective.herokuapp.com
 
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
-import android.view.View
 import android.view.Window
 import android.view.WindowManager
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
-import androidx.annotation.RequiresApi
+import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_create_account.*
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,6 +30,7 @@ class MainActivity : AppCompatActivity() {
     private var btnLogin: TextView? = null
     private var btnCreateAccount: TextView? = null
     private var nProgressBar: ProgressDialog? = null
+    private var checkBoxGrava: CheckBox? = null
 
     //Referencias ao bd
     private var mAuth: FirebaseAuth? = null
@@ -46,9 +40,44 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-            window.setStatusBarColorTo(R.color.colorPrimary)
+        window.setStatusBarColorTo(R.color.colorPrimary)
 
         initialise()
+
+        checkBoxGrava = findViewById(R.id.gravarLogin)
+
+
+        val preferences = getPreferences(Context.MODE_PRIVATE)
+        etEmail?.text = preferences.getString("loginUser", "")
+        etPassword?.text = preferences.getString("passUser", "")
+
+        val sharedPreferences = getSharedPreferences("checkd", Context.MODE_PRIVATE)
+        checkBoxGrava?.isChecked = sharedPreferences.getBoolean("checked", false)
+
+
+
+
+        checkBoxGrava?.setOnCheckedChangeListener { buttonView, isChecked ->
+
+            if (buttonView.isChecked()) {
+
+                val preferences = getPreferences(Context.MODE_PRIVATE)
+
+                val editor = preferences.edit()
+
+                editor.putString("loginUser", etEmail?.text.toString())
+                editor.putString("passUser", etPassword?.text.toString())
+
+                val sharedPreferences = getSharedPreferences("checkd", Context.MODE_PRIVATE)
+                val checkBox = sharedPreferences.edit()
+
+                editor.commit()
+
+                checkBox.putBoolean("checked", true)
+
+                checkBox.commit()
+            }
+        }
     }
 
     fun Window.setStatusBarColorTo(color: Int) {

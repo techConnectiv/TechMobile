@@ -11,29 +11,62 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
 
-    <string-array name="event_ongs">
-        <item>Ong 1</item>
-        <item>Ong 2</item>
-        <item>Ong 3</item>
-        <item>Ong 4</item>
-        <item>Ong 5</item>
-        <item>Ong 6</item>
-        <item>Ong 7</item>
-        <item>Ong 8</item>
-        <item>Ong 9</item>
-        <item>Ong 10</item>
-    </string-array>
+    <!-- AccountEditFragment -->
+    <string name="title_settings_account">Editar dados</string>
 
-    <string-array name="description">
-        <item> Descrição resumida </item>
-        <item> Descrição resumida </item>
-        <item> Descrição resumida </item>
-        <item> Descrição resumida </item>
-        <item> Descrição resumida </item>
-        <item> Descrição resumida </item>
-        <item> Descrição resumida </item>
-        <item> Descrição resumida </item>
-        <item> Descrição resumida </item>
-        <item> Descrição resumida </item>
-    </string-array>
+    <string name="full_name">Nome completo:</string>
+    <string name="cpf">CPF:</string>
+    <string name="tell">Telefone:</string>
+    <string name="e_mail">E-mail:</string>
+    <string name="password">Alterar senha</string>
+
+    <!-- AccountSettingsFragment -->
+    <string name="title_settings_configurations">Configurações gerais</string>
+
+    <string name="personalize_notify">Personalizar notificações</string>
+
+    <string name="maneger_notify">Gerenciar notificações</string>
+
+    <string name="receive_notify">Barra de tarefas</string>
+
+    <string name="version">Sobre esta versão</string>
+
+    <string name="clean_historic_search">Limpar histórico de busca</string>
+
+    <string name="logout">Desconectar</string>
+
+    <string name="central_help">Ajuda</string>
+
+    <string name="security">Segurança</string>
+
+    <string name="suggest_ong">Sugerir Ong</string>
+
+    <string name="become_partner">Seja parceiro</string>
+
+    <string name="settings_donate">Doações</string>
+    <string name="settings_donate_desc">
+            Histórico de doações
+        </string>
+
+    <string name="settings_favorites">Favoritos</string>
+    <string name="settings_favorites_desc">
+            Ongs marcadas como favoritas
+        </string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--  Notificações  -->
+    <string name="notify_email">E-mail</string>
+    <string name="notify_whatsapp">WhatsApp</string>
+    <string name="notify_sms">SMS</string>
+    <string name="settings_notify">Notificações</string>
+    <string name="settings_notify_desc">
+            Central de notificações
+        </string>
+    <string name="detail_notify">Como deseja receber novidades sobre eventos e ongs?</string>
+    <string name="info_important"> Manter as notificações ativadas é importante
+        para não perder eventos e informações de eventos sobre
+        ong’s e empresas parceiras.
+    </string>
+
 </resources>
