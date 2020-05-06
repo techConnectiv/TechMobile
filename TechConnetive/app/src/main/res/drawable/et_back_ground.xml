@@ -8,11 +8,11 @@
 
     <stroke
         android:width="2dp"
-        android:color="@color/endBlue" />
+        android:color="#BDBDBD" />
     <padding
         android:bottom="10dp"
         android:left="10dp"
         android:right="10dp"
         android:top="10dp" />
-    <corners android:radius="20dp" />
+    <corners android:radius="10dp" />
 </shape>

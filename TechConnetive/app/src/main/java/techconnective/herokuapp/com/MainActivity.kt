@@ -54,8 +54,11 @@ class MainActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("checkd", Context.MODE_PRIVATE)
         checkBoxGrava?.isChecked = sharedPreferences.getBoolean("checked", false)
 
-
-
+//        if(preferences.getString("loginUser", "") != ""){
+//            var intent = Intent(this, MenuActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
 
         checkBoxGrava?.setOnCheckedChangeListener { buttonView, isChecked ->
 
@@ -153,6 +156,8 @@ class MainActivity : AppCompatActivity() {
     private fun updateUi() {
         val intent = Intent(this@MainActivity, MenuActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
+        finish()
     }
 }

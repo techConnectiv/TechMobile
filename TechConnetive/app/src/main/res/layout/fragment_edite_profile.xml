@@ -20,12 +20,12 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/back_perfil"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/ic_back" />
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/white"

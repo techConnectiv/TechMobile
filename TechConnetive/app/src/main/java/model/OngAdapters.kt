@@ -1,21 +1,24 @@
 package model
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AlphaAnimation
+import android.view.animation.Animation
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import techconnective.herokuapp.com.DonateFragment
 import techconnective.herokuapp.com.R
 
-class OngAdapters(var context: Context, var arrayList: ArrayList<ListOng>) :
+class OngAdapters(var arrayList: ArrayList<ListOng>, var clickListener: OnClickOng) :
     RecyclerView.Adapter<OngAdapters.ItemHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
-        val itemHolder = LayoutInflater.from(parent.context).inflate(R.layout.grid_layout, parent, false)
+        val itemHolder =
+            LayoutInflater.from(parent.context).inflate(R.layout.grid_layout, parent, false)
         return ItemHolder(itemHolder)
     }
 
@@ -24,18 +27,38 @@ class OngAdapters(var context: Context, var arrayList: ArrayList<ListOng>) :
     }
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
-        var listOng:ListOng = arrayList.get(position)
 
-        holder.icons.setImageResource(listOng.iconOng!!)
-        holder.listOng.text = listOng.listOng
+        holder.initialize(arrayList.get(position), clickListener)
 
-        holder.listOng.setOnClickListener{
-            Toast.makeText(context, listOng.listOng, Toast.LENGTH_SHORT).show()
+    }
+
+    class ItemHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var icons = itemView.findViewById<ImageView>(R.id.icon_image_view)
+        var listOng = itemView.findViewById<TextView>(R.id.title_text_view)
+        var cardView = itemView.findViewById<CardView>(R.id.eventClickDonate)
+
+        fun initialize(item: ListOng, action: OngAdapters.OnClickOng) {
+
+            icons.setImageResource(item.iconOng!!)
+            listOng.text = item.listOng
+
+            itemView.setOnClickListener {
+                action.onItemClick(item, adapterPosition)
+
+                fadein(cardView)
+            }
+        }
+
+        private fun fadein(view: View) {
+            val animation = AlphaAnimation(0f, 1f)
+            animation.duration = 300L
+            animation.repeatMode = Animation.REVERSE
+            animation.repeatCount = 0
+            view.startAnimation(animation)
         }
     }
 
-    class ItemHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        var icons = itemView.findViewById<ImageView>(R.id.icon_image_view)
-        var listOng = itemView.findViewById<TextView>(R.id.title_text_view)
+    interface OnClickOng {
+        fun onItemClick(arrayList: ListOng, position: Int)
     }
 }

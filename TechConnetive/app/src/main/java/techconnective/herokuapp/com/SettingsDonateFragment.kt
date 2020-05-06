@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AlphaAnimation
+import android.view.animation.Animation
+import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import model.DonateAdapters
@@ -41,6 +44,25 @@ class SettingsDonateFragment : Fragment() {
         arrayList = setDataInList()
         donateAdapter = context?.let { DonateAdapters(it, arrayList!!) }
         recyclerView?.adapter = donateAdapter
+
+        var btnBack = view.findViewById<ImageView>(R.id.back_fragment)
+
+        btnBack?.setOnClickListener {
+
+            fadein(btnBack!!)
+
+            val fragmentManager = activity!!.supportFragmentManager
+            fragmentManager.popBackStack()
+
+        }
+    }
+
+    private fun fadein(view: View){
+        val animation = AlphaAnimation(0f,1f)
+        animation.duration = 300L
+        animation.repeatMode = Animation.REVERSE
+        animation.repeatCount = 0
+        view.startAnimation(animation)
     }
 
     private fun setDataInList(): ArrayList<ListDonate> {

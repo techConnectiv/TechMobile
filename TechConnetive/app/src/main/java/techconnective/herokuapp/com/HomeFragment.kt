@@ -1,22 +1,24 @@
 package techconnective.herokuapp.com
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AlphaAnimation
+import android.view.animation.Animation
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import model.EventAdapter
 import model.ListEvent
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), EventAdapter.OnClickEvent {
 
     private var recyclerView: RecyclerView? = null
     private var arrayList: ArrayList<ListEvent>? = null
-    private var linearLayoutManager:LinearLayoutManager? = null
-    private var eventAdapter: EventAdapter? = null
+    private var linearLayoutManager: LinearLayoutManager? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,67 +29,192 @@ class HomeFragment : Fragment() {
 
         recyclerView = view.findViewById(R.id.recycler_view)
 
-        return view
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false )
+        linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         recyclerView?.layoutManager = linearLayoutManager
         recyclerView?.setHasFixedSize(true)
         arrayList = ArrayList()
-        arrayList = setDataInList()
-        eventAdapter = context?.let { EventAdapter(it, arrayList!!) }
-        recyclerView?.adapter = eventAdapter
+        setDataInList()
+        recyclerView?.adapter = EventAdapter(arrayList!!, this)
+
+        return view
     }
 
-    private fun setDataInList(): ArrayList<ListEvent> {
-        var items: ArrayList<ListEvent> = ArrayList()
+    override fun onItemClick(item: ListEvent, position: Int) {
 
-        items.add(
+        //Toast.makeText(context, item.listEvent, Toast.LENGTH_SHORT).show()
+
+        val intent = Intent(context, EventDetailActivity::class.java)
+
+        intent.putExtra("icon", item.iconOng)
+        intent.putExtra("nameEvent", item.listEvent)
+        intent.putExtra("data", item.data)
+        intent.putExtra("hora", item.hora)
+        intent.putExtra("description", item.description)
+
+        startActivity(intent)
+
+    }
+
+    private fun setDataInList() {
+
+        arrayList!!.add(
             ListEvent(
-                R.drawable.latter_a, "Arrecadação de roupas", "Sáb. 02/05/2020"
-                , "08hrs - 16hrs"
+                R.drawable.latter_a,
+                "Arrecadação de roupas",
+                "Sex. 15/05/2020"
+                ,
+                "08hrs - 16hrs",
+                "Endereço: R. Guaporé, 187 - Santa Maria, São Caetano do Sul - SP" +
+                        "\n" +
+                        "\n" +
+                        "Detalhes: Com muita alegria a ONG CIVE convida a todos para participar do nosso primeiro evento do ano, que será dia 15 de Março. Venham e traga a família para compartilhar conosco uma tarde divertida acompanhada de uma boa comida! Convites antecipados a R\$ 20,00 por pessoa.\n" +
+                        "\n" +
+                        "O que teremos?\n" +
+                        "    -Macarrão ao Sugo \n" +
+                        "    -Macarrão a bolonhesa\n" +
+                        "    -Macarrão alho e óleo com brócolis\n" +
+                        "    -Frango ao molho\n" +
+                        "    -Polenta\n" +
+                        "e Muito Mais!\n" +
+                        "\n" +
+                        "Contamos com a sua participação.\n" +
+                        "\n" +
+                        "ABRACE ESTA CAUSA!"
             )
         )
-        items.add(
+        arrayList!!.add(
             ListEvent(
-                R.drawable.latter_b, "Arrecadação de roupas", "Sáb. 02/05/2020"
-                , "08hrs - 16hrs"
+                R.drawable.latter_b, "Macarronada", "Dom. 17/05/2020"
+                , "12hrs - 16hrs",
+                "Endereço: R. Guaporé, 187 - Santa Maria, São Caetano do Sul - SP" +
+                        "\n" +
+                        "\n" +
+                        "Detalhes: Com muita alegria a ONG CIVE convida a todos para participar do nosso primeiro evento do ano, que será dia 15 de Março. Venham e traga a família para compartilhar conosco uma tarde divertida acompanhada de uma boa comida! Convites antecipados a R\$ 20,00 por pessoa.\n" +
+                        "\n" +
+                        "O que teremos?\n" +
+                        "    -Macarrão ao Sugo \n" +
+                        "    -Macarrão a bolonhesa\n" +
+                        "    -Macarrão alho e óleo com brócolis\n" +
+                        "    -Frango ao molho\n" +
+                        "    -Polenta\n" +
+                        "e Muito Mais!\n" +
+                        "\n" +
+                        "Contamos com a sua participação.\n" +
+                        "\n" +
+                        "ABRACE ESTA CAUSA!"
             )
         )
-        items.add(
+        arrayList!!.add(
             ListEvent(
                 R.drawable.latter_c, "Arrecadação de roupas", "Sáb. 02/05/2020"
-                , "08hrs - 16hrs"
+                , "08hrs - 16hrs",
+                "Endereço: R. Guaporé, 187 - Santa Maria, São Caetano do Sul - SP" +
+                        "\n" +
+                        "\n" +
+                        "Detalhes: Com muita alegria a ONG CIVE convida a todos para participar do nosso primeiro evento do ano, que será dia 15 de Março. Venham e traga a família para compartilhar conosco uma tarde divertida acompanhada de uma boa comida! Convites antecipados a R\$ 20,00 por pessoa.\n" +
+                        "\n" +
+                        "O que teremos?\n" +
+                        "    -Macarrão ao Sugo \n" +
+                        "    -Macarrão a bolonhesa\n" +
+                        "    -Macarrão alho e óleo com brócolis\n" +
+                        "    -Frango ao molho\n" +
+                        "    -Polenta\n" +
+                        "e Muito Mais!\n" +
+                        "\n" +
+                        "Contamos com a sua participação.\n" +
+                        "\n" +
+                        "ABRACE ESTA CAUSA!"
             )
         )
-        items.add(
+        arrayList!!.add(
             ListEvent(
                 R.drawable.latter_d, "Arrecadação de roupas", "Sáb. 02/05/2020"
-                , "08hrs - 16hrs"
+                , "08hrs - 16hrs",
+                "Endereço: R. Guaporé, 187 - Santa Maria, São Caetano do Sul - SP" +
+                        "\n" +
+                        "\n" +
+                        "Detalhes: Com muita alegria a ONG CIVE convida a todos para participar do nosso primeiro evento do ano, que será dia 15 de Março. Venham e traga a família para compartilhar conosco uma tarde divertida acompanhada de uma boa comida! Convites antecipados a R\$ 20,00 por pessoa.\n" +
+                        "\n" +
+                        "O que teremos?\n" +
+                        "    -Macarrão ao Sugo \n" +
+                        "    -Macarrão a bolonhesa\n" +
+                        "    -Macarrão alho e óleo com brócolis\n" +
+                        "    -Frango ao molho\n" +
+                        "    -Polenta\n" +
+                        "e Muito Mais!\n" +
+                        "\n" +
+                        "Contamos com a sua participação.\n" +
+                        "\n" +
+                        "ABRACE ESTA CAUSA!"
             )
         )
-        items.add(
+        arrayList!!.add(
             ListEvent(
                 R.drawable.latter_e, "Arrecadação de roupas", "Sáb. 02/05/2020"
-                , "08hrs - 16hrs"
+                , "08hrs - 16hrs",
+                "Endereço: R. Guaporé, 187 - Santa Maria, São Caetano do Sul - SP" +
+                        "\n" +
+                        "\n" +
+                        "Detalhes: Com muita alegria a ONG CIVE convida a todos para participar do nosso primeiro evento do ano, que será dia 15 de Março. Venham e traga a família para compartilhar conosco uma tarde divertida acompanhada de uma boa comida! Convites antecipados a R\$ 20,00 por pessoa.\n" +
+                        "\n" +
+
+                        "O que teremos?\n" +
+                        "    -Macarrão ao Sugo \n" +
+                        "    -Macarrão a bolonhesa\n" +
+                        "    -Macarrão alho e óleo com brócolis\n" +
+                        "    -Frango ao molho\n" +
+                        "    -Polenta\n" +
+                        "e Muito Mais!\n" +
+                        "\n" +
+                        "Contamos com a sua participação.\n" +
+                        "\n" +
+                        "ABRACE ESTA CAUSA!"
             )
         )
-        items.add(
+        arrayList!!.add(
             ListEvent(
                 R.drawable.latter_f, "Arrecadação de roupas", "Sáb. 02/05/2020"
-                , "08hrs - 16hrs"
+                , "08hrs - 16hrs",
+                "Endereço: R. Guaporé, 187 - Santa Maria, São Caetano do Sul - SP" +
+                        "\n" +
+                        "\n" +
+                        "Detalhes: Com muita alegria a ONG CIVE convida a todos para participar do nosso primeiro evento do ano, que será dia 15 de Março. Venham e traga a família para compartilhar conosco uma tarde divertida acompanhada de uma boa comida! Convites antecipados a R\$ 20,00 por pessoa.\n" +
+                        "\n" +
+                        "O que teremos?\n" +
+                        "    -Macarrão ao Sugo \n" +
+                        "    -Macarrão a bolonhesa\n" +
+                        "    -Macarrão alho e óleo com brócolis\n" +
+                        "    -Frango ao molho\n" +
+                        "    -Polenta\n" +
+                        "e Muito Mais!\n" +
+                        "\n" +
+                        "Contamos com a sua participação.\n" +
+                        "\n" +
+                        "ABRACE ESTA CAUSA!"
             )
         )
-        items.add(
+        arrayList!!.add(
             ListEvent(
                 R.drawable.latter_g, "Arrecadação de roupas", "Sáb. 02/05/2020"
-                , "08hrs - 16hrs"
+                , "08hrs - 16hrs",
+                "Endereço: R. Guaporé, 187 - Santa Maria, São Caetano do Sul - SP" +
+                        "\n" +
+                        "\n" +
+                        "Detalhes: Com muita alegria a ONG CIVE convida a todos para participar do nosso primeiro evento do ano, que será dia 15 de Março. Venham e traga a família para compartilhar conosco uma tarde divertida acompanhada de uma boa comida! Convites antecipados a R\$ 20,00 por pessoa.\n" +
+                        "\n" +
+                        "O que teremos?\n" +
+                        "    -Macarrão ao Sugo \n" +
+                        "    -Macarrão a bolonhesa\n" +
+                        "    -Macarrão alho e óleo com brócolis\n" +
+                        "    -Frango ao molho\n" +
+                        "    -Polenta\n" +
+                        "e Muito Mais!\n" +
+                        "\n" +
+                        "Contamos com a sua participação.\n" +
+                        "\n" +
+                        "ABRACE ESTA CAUSA!"
             )
         )
-
-        return items
     }
+
 }

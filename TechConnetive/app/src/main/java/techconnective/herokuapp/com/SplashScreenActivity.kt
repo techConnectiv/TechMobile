@@ -14,7 +14,7 @@ class SplashScreenActivity : AppCompatActivity() {
             val background = object : Thread() {
                 override fun run() {
                     try {
-                        Thread.sleep(2000)
+                        Thread.sleep(1500)
 
                         val intent = Intent(baseContext, MainActivity::class.java)
                         startActivity(intent)

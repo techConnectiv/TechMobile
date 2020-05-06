@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/setting_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grayLight"
@@ -25,19 +24,16 @@
 
             <ImageView
                 android:layout_width="50dp"
+                android:id="@+id/btn_back"
                 android:layout_height="match_parent"
                 android:background="@drawable/ic_back" />
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/white"
                 android:theme="@style/ThemeOverlay.AppCompat.Light"
-                app:title="@string/title_settings_configurations">
-
-
-            </androidx.appcompat.widget.Toolbar>
+                app:title="@string/title_settings_configurations"/>
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -89,7 +85,6 @@
                 android:src="@drawable/ic_next" />
 
             <TextView
-                android:id="@+id/txt_notify"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txt_user"
@@ -145,7 +140,6 @@
                 android:src="@drawable/ic_next" />
 
             <TextView
-                android:id="@+id/txt_donate_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txt_donate"
@@ -201,7 +195,6 @@
                 android:src="@drawable/ic_next" />
 
             <TextView
-                android:id="@+id/txt_favorite_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txt_favorite"
@@ -247,7 +240,6 @@
 
             <TextView
 
-                android:id="@+id/txt_help"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -289,7 +281,6 @@
 
             <TextView
 
-                android:id="@+id/txt_security"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -331,7 +322,6 @@
 
             <TextView
 
-                android:id="@+id/txt_suggest"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -373,7 +363,6 @@
 
             <TextView
 
-                android:id="@+id/txt_partner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"

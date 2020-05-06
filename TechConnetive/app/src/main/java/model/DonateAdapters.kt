@@ -49,13 +49,12 @@ class DonateAdapters(var context: Context, var arrayList: ArrayList<ListDonate>)
         view.startAnimation(animation)
     }
 
-
     class ItemHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         //var icons = itemView.findViewById<ImageView>(R.id.txt_icon)
-        var nomeOng = itemView.findViewById<TextView>(R.id.txt_user)
-        var data = itemView.findViewById<TextView>(R.id.txt_data)
-        var hora = itemView.findViewById<TextView>(R.id.txt_hora)
-        var cardView = itemView.findViewById<CardView>(R.id.eventClick)
+        var nomeOng = itemView.findViewById<TextView>(R.id.txt_user_donate)
+        var data = itemView.findViewById<TextView>(R.id.txt_data_donate)
+        var hora = itemView.findViewById<TextView>(R.id.txt_hora_donate)
+        var cardView = itemView.findViewById<CardView>(R.id.eventClickHistoric)
 
     }
 }

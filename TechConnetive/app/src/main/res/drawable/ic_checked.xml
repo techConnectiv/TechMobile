@@ -21,7 +21,7 @@
         <path
             android:pathData="M118 56C118 86.9279 91.5848 112 59 112C26.4152 112 0 86.9279 0 56C0 25.0721 26.4152 0 59 0C91.5848 0 118 25.0721 118 56Z"
             android:strokeWidth="6"
-            android:strokeColor="#EC1919"
+            android:strokeColor="#F44336"
             />
 
     </group>

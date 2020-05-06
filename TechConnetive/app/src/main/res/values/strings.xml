@@ -4,12 +4,6 @@
     <string name="pesquisar">Pesquisar</string>
     <string name="doacao">Doação</string>
     <string name="perfil">Perfil</string>
-    <string name="ongs">Ongs e eventos</string>
-    <string name="textevent">Eventos que estão acontecendo perto de você:</string>
-    <string name="title_activity_navigation">NavigationActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
 
     <!-- AccountEditFragment -->
     <string name="title_settings_account">Editar dados</string>
@@ -28,12 +22,6 @@
     <string name="maneger_notify">Gerenciar notificações</string>
 
     <string name="receive_notify">Barra de tarefas</string>
-
-    <string name="version">Sobre esta versão</string>
-
-    <string name="clean_historic_search">Limpar histórico de busca</string>
-
-    <string name="logout">Desconectar</string>
 
     <string name="central_help">Ajuda</string>
 
@@ -59,7 +47,6 @@
     <string name="notify_email">E-mail</string>
     <string name="notify_whatsapp">WhatsApp</string>
     <string name="notify_sms">SMS</string>
-    <string name="settings_notify">Notificações</string>
     <string name="settings_notify_desc">
             Central de notificações
         </string>
@@ -68,5 +55,6 @@
         para não perder eventos e informações de eventos sobre
         ong’s e empresas parceiras.
     </string>
+    <string name="detail_event">Descrição do evento</string>
 
 </resources>

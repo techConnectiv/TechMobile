@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AlphaAnimation
+import android.view.animation.Animation
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 
@@ -19,11 +21,24 @@ class SettingsNotifyFragment : Fragment() {
 
         var btnBack = view.findViewById<ImageView>(R.id.return_fragment)
 
-        btnBack.setOnClickListener {
+        btnBack?.setOnClickListener {
+
+            fadein(btnBack!!)
+
+            val fragmentManager = activity!!.supportFragmentManager
+            fragmentManager.popBackStack()
 
         }
 
         return view
+    }
+
+    private fun fadein(view: View){
+        val animation = AlphaAnimation(0f,1f)
+        animation.duration = 300L
+        animation.repeatMode = Animation.REVERSE
+        animation.repeatCount = 0
+        view.startAnimation(animation)
     }
 
 }

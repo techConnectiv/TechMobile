@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/eventClick"
+    android:id="@+id/eventClickHistoric"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="10dp"
@@ -18,7 +18,7 @@
         android:layout_marginBottom="15dp">
 
         <TextView
-            android:id="@+id/txt_user"
+            android:id="@+id/txt_user_donate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -26,22 +26,22 @@
             android:textSize="18dp" />
 
         <TextView
-            android:id="@+id/txt_hora"
+            android:id="@+id/txt_hora_donate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txt_user"
-            android:layout_alignStart="@id/txt_user"
+            android:layout_below="@id/txt_user_donate"
+            android:layout_alignStart="@id/txt_user_donate"
             android:ellipsize="marquee"
             android:singleLine="true"
             android:text="11hrs - 16hrs"
             android:textSize="15dp" />
 
         <TextView
-            android:id="@+id/txt_data"
+            android:id="@+id/txt_data_donate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txt_hora"
-            android:layout_alignStart="@id/txt_user"
+            android:layout_below="@id/txt_hora_donate"
+            android:layout_alignStart="@id/txt_user_donate"
             android:layout_marginEnd="20dp"
             android:ellipsize="marquee"
             android:singleLine="true"
@@ -49,7 +49,6 @@
             android:textSize="15dp" />
 
         <ImageView
-            android:id="@+id/txt_enter"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_alignParentEnd="true"
