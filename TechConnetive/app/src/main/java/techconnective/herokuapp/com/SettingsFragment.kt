@@ -38,7 +38,7 @@ class SettingsFragment : Fragment() {
         btnSecurity = view.findViewById(R.id.security)
         btnSuggest = view.findViewById(R.id.suggest)
         btnPartner = view.findViewById(R.id.partner)
-        btnBack = view.findViewById(R.id.btn_back)
+        btnBack = view.findViewById(R.id.return_profile)
 
         btnBack?.setOnClickListener {
 

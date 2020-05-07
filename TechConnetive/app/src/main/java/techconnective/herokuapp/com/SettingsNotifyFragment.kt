@@ -19,7 +19,7 @@ class SettingsNotifyFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_settings_notify, container, false)
 
-        var btnBack = view.findViewById<ImageView>(R.id.return_fragment)
+        var btnBack = view.findViewById<ImageView>(R.id.return_menu)
 
         btnBack?.setOnClickListener {
 

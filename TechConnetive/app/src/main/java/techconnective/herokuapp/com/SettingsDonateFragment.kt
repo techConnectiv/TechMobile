@@ -45,7 +45,7 @@ class SettingsDonateFragment : Fragment() {
         donateAdapter = context?.let { DonateAdapters(it, arrayList!!) }
         recyclerView?.adapter = donateAdapter
 
-        var btnBack = view.findViewById<ImageView>(R.id.back_fragment)
+        var btnBack = view.findViewById<ImageView>(R.id.return_menu)
 
         btnBack?.setOnClickListener {
 

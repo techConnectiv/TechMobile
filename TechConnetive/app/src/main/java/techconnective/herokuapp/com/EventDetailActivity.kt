@@ -16,7 +16,7 @@ class EventDetailActivity : AppCompatActivity() {
         supportActionBar?.hide();
         setContentView(R.layout.activity_event_detail)
 
-        var btnBack = findViewById<ImageView>(R.id.return_)
+        var btnBack = findViewById<ImageView>(R.id.return_events)
 
         btnBack?.setOnClickListener {
 

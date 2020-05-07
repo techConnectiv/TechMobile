@@ -18,7 +18,7 @@ class Edite_Profile_Fragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_edite_profile, container, false)
 
-        var btnBack = view.findViewById<ImageView>(R.id.back_perfil)
+        var btnBack = view.findViewById<ImageView>(R.id.return_peril)
 
         btnBack?.setOnClickListener {
 

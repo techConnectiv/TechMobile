@@ -1,43 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FormDonateActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <LinearLayout
         android:id="@+id/app_bar_layout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FF509CF3"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
         android:elevation="1dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/return_donate"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_back"
+            android:backgroundTint="#fff" />
 
-            <ImageView
-                android:id="@+id/return_donate"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/ic_back"
-                android:backgroundTint="#fff" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="fill_vertical"
+            android:paddingStart="60dp"
+            android:text="Formulário de doação"
+            android:textColor="#fff"
+            android:textSize="20dp" />
 
-            <androidx.appcompat.widget.Toolbar
-                android:layout_width="364dp"
-                android:layout_height="wrap_content"
-                android:background="@android:color/white"
-                android:backgroundTint="#FF509CF3"
-                android:theme="@style/ThemeOverlay.AppCompat.Light"
-                app:title="Formulário de doação"
-                app:titleTextColor="#fff">
-
-            </androidx.appcompat.widget.Toolbar>
-        </LinearLayout>
-    </com.google.android.material.appbar.AppBarLayout>
+    </LinearLayout>
 
     <View
         android:layout_width="453dp"
@@ -97,17 +90,18 @@
         android:padding="12dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Dados da doação:"
+            android:gravity="center"
+            android:text="Atenção: os campos marcados com * são obrigatórios."
             android:textSize="15dp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="20dp">
 
             <EditText
                 android:id="@+id/et_type"
@@ -115,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:background="@drawable/et_back_ground"
+                android:background="@drawable/et_valid"
                 android:hint="Tipo" />
 
             <EditText
@@ -123,8 +117,8 @@
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/et_back_ground"
-                android:hint="O que" />
+                android:background="@drawable/et_valid"
+                android:hint="* O que" />
         </RelativeLayout>
 
 
@@ -139,8 +133,8 @@
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:background="@drawable/et_back_ground"
-                android:hint="Quantidade"
+                android:background="@drawable/et_valid"
+                android:hint="* Quantidade"
                 android:inputType="number" />
 
             <TextView
@@ -148,7 +142,7 @@
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/et_back_ground"
+                android:background="@drawable/et_valid"
                 android:drawableEnd="@drawable/ic_calendary"
                 android:gravity="center"
                 android:hint="Validade"
@@ -168,7 +162,7 @@
                 android:id="@+id/et_coments"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:background="@drawable/et_back_ground"
+                android:background="@drawable/et_valid"
                 android:gravity="left"
                 android:hint="Comentar" />
 
