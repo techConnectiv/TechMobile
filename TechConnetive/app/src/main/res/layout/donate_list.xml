@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="..."
+            android:text="nomeOng"
             android:textSize="18dp" />
 
         <TextView
@@ -33,7 +33,7 @@
             android:layout_alignStart="@id/txt_user_donate"
             android:ellipsize="marquee"
             android:singleLine="true"
-            android:text="11hrs - 16hrs"
+            android:text="Horário"
             android:textSize="15dp" />
 
         <TextView
@@ -45,7 +45,7 @@
             android:layout_marginEnd="20dp"
             android:ellipsize="marquee"
             android:singleLine="true"
-            android:text="Domingo - 15/04/2020"
+            android:text="Data"
             android:textSize="15dp" />
 
         <ImageView

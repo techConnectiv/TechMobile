@@ -29,7 +29,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
         android:layout_marginTop="70dp"
-        android:text="DOAR"
+        android:text="@string/txt_donate"
         android:textColor="#fff"
         android:textSize="40sp"
         android:textStyle="bold" />
@@ -73,8 +73,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
-        android:layout_marginTop="320dp"
-        android:text="Ongs próximas a você:"
+        android:layout_marginTop="305dp"
+        android:id="@+id/tipo"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="325dp"
+        android:text="@string/ongs_proximas"
         android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView

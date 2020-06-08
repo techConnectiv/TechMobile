@@ -118,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:background="@drawable/et_valid"
-                android:hint="* O que" />
+                android:hint="* Descrição" />
         </RelativeLayout>
 
 

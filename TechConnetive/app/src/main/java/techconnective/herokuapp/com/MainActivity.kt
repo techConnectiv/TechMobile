@@ -11,30 +11,21 @@ import android.view.WindowManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.google.firebase.auth.FirebaseAuth
+import connection.Credenciais
+import connection.GetLoginTask
+import java.io.Serializable
 
 class MainActivity : AppCompatActivity() {
 
     private val TAG = "LoginActivity"
 
-    //variaveis globais
-
-    private var email: String? = null
-    private var password: String? = null
-
-    //Elementos de interface UI
-
     private var tvFogotPassword: TextView? = null
-    private var etEmail: TextView? = null
+    private var etUserName: TextView? = null
     private var etPassword: TextView? = null
     private var btnLogin: TextView? = null
     private var btnCreateAccount: TextView? = null
     private var nProgressBar: ProgressDialog? = null
     private var checkBoxGrava: CheckBox? = null
-
-    //Referencias ao bd
-    private var mAuth: FirebaseAuth? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,16 +39,16 @@ class MainActivity : AppCompatActivity() {
 
 
         val preferences = getPreferences(Context.MODE_PRIVATE)
-        etEmail?.text = preferences.getString("loginUser", "")
+        etUserName?.text = preferences.getString("loginUser", "")
         etPassword?.text = preferences.getString("passUser", "")
 
         val sharedPreferences = getSharedPreferences("checkd", Context.MODE_PRIVATE)
         checkBoxGrava?.isChecked = sharedPreferences.getBoolean("checked", false)
 
-//        if(preferences.getString("loginUser", "") != ""){
+//        if (preferences!!.getString("loginUser", "") != "") {
 //            var intent = Intent(this, MenuActivity::class.java)
 //            startActivity(intent)
-//            finish()
+//
 //        }
 
         checkBoxGrava?.setOnCheckedChangeListener { buttonView, isChecked ->
@@ -68,7 +59,7 @@ class MainActivity : AppCompatActivity() {
 
                 val editor = preferences.edit()
 
-                editor.putString("loginUser", etEmail?.text.toString())
+                editor.putString("loginUser", etUserName?.text.toString())
                 editor.putString("passUser", etPassword?.text.toString())
 
                 val sharedPreferences = getSharedPreferences("checkd", Context.MODE_PRIVATE)
@@ -91,13 +82,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun initialise() {
         tvFogotPassword = findViewById(R.id.tv_forgot_password) as TextView
-        etEmail = findViewById(R.id.login_user_name) as EditText
+        etUserName = findViewById(R.id.login_user_name) as EditText
         etPassword = findViewById(R.id.pass_user_name) as EditText
         btnLogin = findViewById(R.id.entrar) as Button
         btnCreateAccount = findViewById(R.id.btn_register_account) as TextView
         nProgressBar = ProgressDialog(this)
-
-        mAuth = FirebaseAuth.getInstance()
 
         tvFogotPassword!!.setOnClickListener {
             startActivity(
@@ -120,8 +109,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loginUser() {
-        email = etEmail?.text.toString()
-        password = etPassword?.text.toString()
+
+        val email = etUserName?.text.toString()
+        val password = etPassword?.text.toString()
 
         if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
             nProgressBar!!.setMessage("Verificando usuario")
@@ -129,34 +119,30 @@ class MainActivity : AppCompatActivity() {
 
             Log.d(TAG, "Login do Usuário")
 
-            mAuth!!.signInWithEmailAndPassword(email!!, password!!)
-                .addOnCompleteListener(this) { task ->
+            val res = GetLoginTask().execute(Credenciais(email, password)).get()
 
-                    nProgressBar!!.hide()
+            if (res != null) {
+                nProgressBar!!.hide()
+                val user = res
 
-                    if (task.isSuccessful) {
-                        Log.d(TAG, "Logado com sucesso")
-                        updateUi()
-                    } else {
-                        Log.e(TAG, "Usuário não encontrado", task.exception)
-                        Toast.makeText(
-                            this@MainActivity,
-                            "Falha na autenticação.",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
+                Toast.makeText(this, "${user}", Toast.LENGTH_SHORT).show()
 
-
-                }
+                updateUi(user)
+            } else {
+                nProgressBar!!.hide()
+                Toast.makeText(this@MainActivity, "Usuário não encontrado.", Toast.LENGTH_SHORT)
+                    .show()
+            }
         } else {
             Toast.makeText(this, "Entre com mais detalhes", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun updateUi() {
+    private fun updateUi(user: Serializable) {
         val intent = Intent(this@MainActivity, MenuActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        intent.putExtra("user", user)
         startActivity(intent)
         finish()
     }

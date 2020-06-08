@@ -53,8 +53,12 @@
     <string name="detail_notify">Como deseja receber novidades sobre eventos e ongs?</string>
     <string name="info_important"> Manter as notificações ativadas é importante
         para não perder eventos e informações de eventos sobre
-        ong’s e empresas parceiras.
+        ong’s.
     </string>
     <string name="detail_event">Descrição do evento</string>
+    <string name="dialog_doacao">Doação concluída com sucesso!</string>
+    <string name="ongs_proximas">Ongs próximas a você:</string>
+    <string name="txt_donate">DOAR</string>
+    <string name="detail_donate">Detalhes da doação</string>
 
 </resources>

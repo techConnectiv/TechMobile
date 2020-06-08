@@ -1,122 +1,112 @@
 package techconnective.herokuapp.com
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AlphaAnimation
-import android.view.animation.Animation
-import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import model.DonateAdapters
-import model.EventAdapter
 import model.ListDonate
-import model.ListEvent
 
-class SettingsDonateFragment : Fragment() {
+class SettingsDonateFragment : Fragment(), DonateAdapters.OnClickDonate{
 
     private var recyclerView: RecyclerView? = null
     private var arrayList: ArrayList<ListDonate>? = null
-    private var linearLayoutManager:LinearLayoutManager? = null
-    private var donateAdapter: DonateAdapters? = null
+    private var linearLayoutManager: LinearLayoutManager? = null
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         val view = inflater.inflate(R.layout.fragment_settings_donate, container, false)
 
         recyclerView = view.findViewById(R.id.recyclerViewDonate)
 
-        return view
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false )
+        linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         recyclerView?.layoutManager = linearLayoutManager
         recyclerView?.setHasFixedSize(true)
         arrayList = ArrayList()
-        arrayList = setDataInList()
-        donateAdapter = context?.let { DonateAdapters(it, arrayList!!) }
-        recyclerView?.adapter = donateAdapter
+        setDataInList()
+        recyclerView?.adapter = DonateAdapters(arrayList!!, this)
 
-        var btnBack = view.findViewById<ImageView>(R.id.return_menu)
-
-        btnBack?.setOnClickListener {
-
-            fadein(btnBack!!)
-
-            val fragmentManager = activity!!.supportFragmentManager
-            fragmentManager.popBackStack()
-
-        }
+        return view
     }
 
-    private fun fadein(view: View){
-        val animation = AlphaAnimation(0f,1f)
-        animation.duration = 300L
-        animation.repeatMode = Animation.REVERSE
-        animation.repeatCount = 0
-        view.startAnimation(animation)
+    override fun onItemClick(item: ListDonate, position: Int) {
+
+        val intent = Intent(context, DonateDetailActivity::class.java)
+
+        intent.putExtra("nameOng", item.nomeOng)
+        intent.putExtra("data", item.data)
+        intent.putExtra("hora", item.hora)
+        intent.putExtra("quantidade", item.quantidade)
+        intent.putExtra("itemDoado", item.itemDoado)
+
+        startActivity(intent)
+
     }
 
-    private fun setDataInList(): ArrayList<ListDonate> {
-        var items: ArrayList<ListDonate> = ArrayList()
+    private fun setDataInList() {
 
-        items.add(
+        arrayList!!.add(
             ListDonate(
                 "AMAI", "29/04/2020"
-                , "13:47"
+                , "13:47",
+                12, "Blusa de frio"
             )
         )
-        items.add(
+        arrayList!!.add(
             ListDonate(
                 "Todos Juntos", "23/04/2020"
-                , "16:23"
+                , "16:23",
+                20, "Boneco do Bem10"
             )
         )
-        items.add(
+        arrayList!!.add(
             ListDonate(
                 "SÓ BEBÊ", "10/04/2020"
-                , "18:11"
+                , "18:11",
+                30, "Pacote de fralda"
             )
         )
-        items.add(
+        arrayList!!.add(
             ListDonate(
                 "YASMIN", "28/03/2020"
-                , "12:32"
+                , "12:32",
+                5, "Pacote de arroz 5kg"
             )
         )
-        items.add(
+        arrayList!!.add(
             ListDonate(
                 "despertar", "23/03/2020"
-                , "12:20"
+                , "12:20",
+                40, "Brinquedos vareados"
             )
         )
-        items.add(
+        arrayList!!.add(
             ListDonate(
                 "Ágatha", "17/03/2020"
-                , "15:35"
+                , "15:35",
+                20, "Cesta básica"
             )
         )
-        items.add(
+        arrayList!!.add(
             ListDonate(
                 "Erguendo Vidas", "03/03/2020"
-                , "14:47"
+                , "14:47",
+                34, "Roupas variadas"
             )
         )
-        items.add(
+        arrayList!!.add(
             ListDonate(
                 "Todos Juntos", "26/02/2020"
-                , "19:23"
+                , "19:23",
+                10, "Camisas com estampa"
             )
         )
-
-        return items
     }
 }

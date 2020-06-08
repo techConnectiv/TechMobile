@@ -1,24 +1,23 @@
 package model
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
-import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import techconnective.herokuapp.com.R
+import techconnective.herokuapp.com.SettingsDonateFragment
 
-class DonateAdapters(var context: Context, var arrayList: ArrayList<ListDonate>) :
+class DonateAdapters(var arrayList: ArrayList<ListDonate>, var clickListener: SettingsDonateFragment) :
     RecyclerView.Adapter<DonateAdapters.ItemHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
-        val itemHolder = LayoutInflater.from(parent.context).inflate(R.layout.donate_list, parent, false)
+        val itemHolder =
+            LayoutInflater.from(parent.context).inflate(R.layout.donate_list, parent, false)
         return ItemHolder(itemHolder)
     }
 
@@ -27,26 +26,8 @@ class DonateAdapters(var context: Context, var arrayList: ArrayList<ListDonate>)
     }
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
-        var listEvent:ListDonate = arrayList.get(position)
 
-        //holder.icons.setImageResource(listEvent.iconOng!!)
-        holder.nomeOng.text = listEvent.nomeOng
-        holder.data.text = listEvent.data
-        holder.hora.text = listEvent.hora
-
-        holder.cardView.setOnClickListener{
-
-            fadein(holder.cardView)
-
-            Toast.makeText(context, listEvent.nomeOng, Toast.LENGTH_SHORT).show()
-        }
-    }
-    private fun fadein(view: View){
-        val animation = AlphaAnimation(0f,1f)
-        animation.duration = 300L
-        animation.repeatMode = Animation.REVERSE
-        animation.repeatCount = 0
-        view.startAnimation(animation)
+        holder.initialize(arrayList.get(position), clickListener)
     }
 
     class ItemHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -56,5 +37,30 @@ class DonateAdapters(var context: Context, var arrayList: ArrayList<ListDonate>)
         var hora = itemView.findViewById<TextView>(R.id.txt_hora_donate)
         var cardView = itemView.findViewById<CardView>(R.id.eventClickHistoric)
 
+        fun initialize(item: ListDonate, action: OnClickDonate) {
+
+            //icons.setImageResource(item.iconOng!!)
+            nomeOng.text = item.nomeOng
+            data.text = item.data
+            hora.text = item.hora
+
+            itemView.setOnClickListener {
+                action.onItemClick(item, adapterPosition)
+
+                fadein(cardView)
+            }
+        }
+        private fun fadein(view: View){
+            val animation = AlphaAnimation(0f,1f)
+            animation.duration = 300L
+            animation.repeatMode = Animation.REVERSE
+            animation.repeatCount = 0
+            view.startAnimation(animation)
+        }
+
+    }
+
+    interface OnClickDonate {
+        fun onItemClick(arrayList: ListDonate, position: Int)
     }
 }

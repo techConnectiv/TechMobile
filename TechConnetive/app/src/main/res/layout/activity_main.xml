@@ -19,8 +19,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="30dp"
-            android:textSize="40dp"
-            android:text="TechConnective" />
+            android:text="TechConnective"
+            android:textSize="40dp" />
 
         <ImageView
             android:layout_width="120dp"
@@ -54,8 +54,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
+
             <CheckBox
                 android:id="@+id/gravarLogin"
                 android:layout_width="wrap_content"
