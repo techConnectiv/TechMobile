@@ -9,7 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import techconnective.herokuapp.com.DonateFragment
 import techconnective.herokuapp.com.R
 
 class OngAdapters(var arrayList: ArrayList<ListOng>, var clickListener: OnClickOng) :

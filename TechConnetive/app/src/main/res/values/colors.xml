@@ -6,5 +6,5 @@
     <color name="startBlue">#09c6df</color>
     <color name="endBlue">#0bcce6</color>
     <color name="invalid">#E60B0B</color>
-
+    <color name="colorWhite">#fff</color>
 </resources>

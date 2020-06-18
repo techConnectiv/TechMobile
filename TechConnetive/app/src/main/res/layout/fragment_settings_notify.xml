@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SettingsNotifyFragment">
+    tools:context=".configuracoes.SettingsNotifyFragment">
 
     <LinearLayout
         android:id="@+id/app_bar_layout"
@@ -25,8 +25,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="fill_vertical"
-            android:paddingStart="60dp"
-            android:text="@string/detail_event"
+            android:paddingStart="20dp"
+            android:text="@string/settings_notify_desc"
             android:textSize="20dp" />
 
     </LinearLayout>

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/grayLight"
     android:orientation="vertical"
-    tools:context=".ProfileFragment">
+    tools:context=".menu.ProfileFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -21,26 +21,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
-                android:padding="10dp"
-                >
+                android:padding="10dp">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/ll_logout"
-                    >
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
                     <ImageView
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:background="@drawable/ic_logout"
-                        android:backgroundTint="#fff"/>
+                        android:backgroundTint="#fff" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:paddingStart="10dp"
-                        android:text="Sair"
+                        android:text="@string/logout"
                         android:textColor="#fff"
                         android:textSize="20dp"
                         android:textStyle="bold" />
@@ -53,16 +52,16 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
-                android:background="@drawable/ic_checked"
+                android:background="@drawable/ic_unchecked"
                 android:src="@drawable/logo" />
 
             <TextView
+                android:id="@+id/name_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:textColor="#fff"
-                android:id="@+id/name_user"
                 android:textSize="21sp"
                 android:textStyle="bold" />
 
@@ -75,11 +74,11 @@
                 android:weightSum="2">
 
                 <LinearLayout
+                    android:id="@+id/editar"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:id="@+id/editar"
                     android:orientation="vertical">
 
                     <ImageView
@@ -92,19 +91,18 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Editar perfil"
+                        android:text="@string/title_settings_account"
                         android:textColor="#fff" />
 
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/configuracao"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:id="@+id/configuracao"
-                    >
+                    android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="30dp"
@@ -115,7 +113,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Configurações"
+                        android:text="@string/txt_config"
                         android:textColor="#fff" />
                 </LinearLayout>
 
@@ -145,7 +143,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Eventos"
+                        android:text="@string/events"
                         android:textSize="20sp" />
 
                     <TextView
@@ -168,13 +166,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Doações"
+                        android:text="@string/doacao"
                         android:textSize="20sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="10dp"
+                        android:id="@+id/doou"
                         android:text="125"
                         android:textColor="@color/startBlue"
                         android:textSize="20sp"
@@ -191,14 +190,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Level"
+                        android:text="@string/level"
                         android:textSize="20sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="10dp"
-                        android:text="13"
+                        android:text="0"
                         android:textColor="@color/startBlue"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -227,10 +226,10 @@
                 android:src="@drawable/ic_email" />
 
             <TextView
+                android:id="@+id/email_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:id="@+id/email_user"
                 android:paddingLeft="20dp"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -253,8 +252,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="20dp"
+                android:id="@+id/tell_user"
                 android:textSize="16dp"
-                android:textColor="#000"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -271,11 +270,11 @@
                 android:src="@drawable/ic_add_location" />
 
             <TextView
+                android:id="@+id/adress_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="20dp"
-                android:text="Rua Haddock Lobo, 595 - Cerqueira César, São Paulo - SP, 01414-001"
                 android:textSize="16dp"
                 android:textStyle="bold" />
         </LinearLayout>

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".DonateDetailActivity">
+    tools:context=".doacao.DonateDetailActivity">
 
     <LinearLayout
         android:id="@+id/app_bar_layout"
@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="fill_vertical"
-            android:paddingStart="60dp"
+            android:paddingStart="20dp"
             android:text="@string/detail_donate"
             android:textSize="20dp" />
 
@@ -43,7 +43,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="100dp"
+            android:textSize="20sp"
             android:background="@drawable/login_edit_background"
             android:backgroundTint="#DBEDEDED"
             android:padding="12dp" />

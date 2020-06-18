@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FormDonateActivity">
+    tools:context=".doacao.FormDonateActivity">
 
     <LinearLayout
         android:id="@+id/app_bar_layout2"
@@ -25,8 +25,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="fill_vertical"
-            android:paddingStart="60dp"
-            android:text="Formulário de doação"
+            android:paddingStart="20dp"
+            android:text="@string/title_form_doacao"
             android:textColor="#fff"
             android:textSize="20dp" />
 
@@ -47,6 +47,7 @@
         android:layout_marginLeft="-22dp"
         android:layout_marginTop="-84dp"
         android:layout_marginRight="-22dp"
+
         android:background="@drawable/header">
 
     </View>
@@ -58,7 +59,7 @@
         android:layout_below="@+id/app_bar_layout2"
         android:layout_centerInParent="true"
         android:layout_marginTop="5dp"
-        android:text="Doando para:"
+        android:text="@string/txt_doado_para"
         android:textColor="#fff"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -94,7 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="Atenção: os campos marcados com * são obrigatórios."
+            android:text="@string/txt_aviso_campo"
             android:textSize="15dp" />
 
         <RelativeLayout
@@ -110,15 +111,17 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:background="@drawable/et_valid"
-                android:hint="Tipo" />
+                android:hint="@string/hint_tipo" />
 
             <EditText
-                android:id="@+id/et_what"
+                android:id="@+id/et_quant"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:background="@drawable/et_valid"
-                android:hint="* Descrição" />
+                android:hint="@string/hint_quantidade"
+                android:inputType="number" />
+
         </RelativeLayout>
 
 
@@ -129,26 +132,24 @@
             android:layout_marginTop="10dp">
 
             <EditText
-                android:id="@+id/et_quant"
-                android:layout_width="180dp"
+                android:id="@+id/et_what"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
                 android:background="@drawable/et_valid"
-                android:hint="* Quantidade"
-                android:inputType="number" />
+                android:hint="@string/hint_descrcao" />
 
-            <TextView
-                android:id="@+id/et_validate"
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/et_valid"
-                android:drawableEnd="@drawable/ic_calendary"
-                android:gravity="center"
-                android:hint="Validade"
-                android:paddingStart="-55dp"
-                android:textSize="17dp"
-                android:theme="@style/AppTheme" />
+<!--            <TextView-->
+<!--                android:id="@+id/et_validate"-->
+<!--                android:layout_width="180dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignParentRight="true"-->
+<!--                android:background="@drawable/et_valid"-->
+<!--                android:drawableEnd="@drawable/ic_calendary"-->
+<!--                android:gravity="center"-->
+<!--                android:hint="Validade"-->
+<!--                android:paddingStart="-55dp"-->
+<!--                android:textSize="17dp"-->
+<!--                android:theme="@style/AppTheme" />-->
 
         </RelativeLayout>
 
@@ -161,10 +162,11 @@
             <EditText
                 android:id="@+id/et_coments"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/et_valid"
                 android:gravity="left"
-                android:hint="Comentar" />
+                android:lines="5"
+                android:hint="@string/hint_comentario" />
 
         </RelativeLayout>
 
@@ -176,7 +178,7 @@
             android:layout_marginTop="40dp"
             android:background="@drawable/button_background"
             android:gravity="center"
-            android:text="Concluir" />
+            android:text="@string/btn_doar" />
 
     </LinearLayout>
 

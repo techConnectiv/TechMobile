@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:paddingStart="2dp"
     android:paddingEnd="2dp"
-    tools:context=".SettingsFragment">
+    tools:context=".configuracoes.SettingsFragment">
 
     <LinearLayout
         android:id="@+id/app_bar_layout2"
@@ -30,9 +30,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="fill_vertical"
-            android:paddingStart="50dp"
+            android:paddingStart="20dp"
             android:textSize="20dp"
-            android:text="Formulário de doação"
+            android:text="@string/title_settings_configurations"
             android:textColor="#000" />
 
     </LinearLayout>
@@ -244,7 +244,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_toEndOf="@+id/icon_help"
-                android:text="@string/central_help"
+                android:text="@string/settings_help"
                 android:textColor="#333333"
                 android:textSize="16dp" />
 

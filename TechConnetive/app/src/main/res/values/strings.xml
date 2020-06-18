@@ -8,9 +8,9 @@
     <!-- AccountEditFragment -->
     <string name="title_settings_account">Editar dados</string>
 
-    <string name="full_name">Nome completo:</string>
+    <string name="name">Nome:</string>
     <string name="cpf">CPF:</string>
-    <string name="tell">Telefone:</string>
+    <string name="tell">Contato:</string>
     <string name="e_mail">E-mail:</string>
     <string name="password">Alterar senha</string>
 
@@ -23,35 +23,27 @@
 
     <string name="receive_notify">Barra de tarefas</string>
 
-    <string name="central_help">Ajuda</string>
-
     <string name="security">Segurança</string>
 
-    <string name="suggest_ong">Sugerir Ong</string>
+    <string name="suggest_ong">Sugerir ONG</string>
 
     <string name="become_partner">Seja parceiro</string>
 
     <string name="settings_donate">Doações</string>
-    <string name="settings_donate_desc">
-            Histórico de doações
-        </string>
+    <string name="settings_donate_desc">Histórico de doações</string>
 
     <string name="settings_favorites">Favoritos</string>
-    <string name="settings_favorites_desc">
-            Ongs marcadas como favoritas
-        </string>
+    <string name="settings_favorites_desc">Ongs marcadas como favoritas</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="settings_help">Ajuda</string>
 
     <!--  Notificações  -->
     <string name="notify_email">E-mail</string>
     <string name="notify_whatsapp">WhatsApp</string>
     <string name="notify_sms">SMS</string>
-    <string name="settings_notify_desc">
-            Central de notificações
-        </string>
+    <string name="settings_notify_desc">Central de notificações</string>
     <string name="detail_notify">Como deseja receber novidades sobre eventos e ongs?</string>
-    <string name="info_important"> Manter as notificações ativadas é importante
+    <string name="info_important">Manter as notificações ativadas é importante
         para não perder eventos e informações de eventos sobre
         ong’s.
     </string>
@@ -60,5 +52,54 @@
     <string name="ongs_proximas">Ongs próximas a você:</string>
     <string name="txt_donate">DOAR</string>
     <string name="detail_donate">Detalhes da doação</string>
+    <string name="criar">Criar uma conta</string>
+    <string name="info_login">Informações de login</string>
+    <string name="hint_senha">Senha</string>
+    <string name="info_user">Informações pessoais</string>
+    <string name="hint_name">Nome de usuário</string>
+    <string name="hint_nasc">Data de nascimento</string>
+    <string name="hint_cel">Celular</string>
+    <string name="info_endereco">Endereço</string>
+    <string name="hint_cep">CEP</string>
+    <string name="hint_cpf">CPF</string>
+    <string name="hint_cidade">Cidade</string>
+    <string name="hint_bairro">Bairro</string>
+    <string name="hint_estado">Estado</string>
+    <string name="hint_rua">Rua</string>
+    <string name="btn_cadastrar">Cadastrar</string>
+    <string name="txt_have_account">Ja tenho uma conta</string>
+    <string name="txt_restore_pass">Recuperação de senha</string>
+    <string name="hint_email_valido">Digite um email válido</string>
+    <string name="btn_recuperar">Enviar</string>
+    <string name="title_form_doacao">Formulário de doação</string>
+    <string name="txt_doado_para">Doando para:</string>
+    <string name="txt_aviso_campo">Atenção: os campos marcados com * são obrigatórios.</string>
+    <string name="hint_tipo">Tipo</string>
+    <string name="hint_quantidade">* Quantidade</string>
+    <string name="hint_descrcao">* Descrição</string>
+    <string name="hint_comentario">Comentar</string>
+    <string name="btn_doar">Concluir</string>
+    <string name="txt_salvar_credenciais">Lembrar senha</string>
+    <string name="txt_troca_senha">Esqueceu a senha?</string>
+    <string name="btn_logar">Entrar</string>
+    <string name="txt_criar_conta">Criar conta</string>
+    <string name="txt_finaliza_doacao">Doação concluída com sucesso!</string>
+    <string name="txt_eventos">Eventos que estão acontecendo perto de você:</string>
+    <string name="events">Eventos</string>
+    <string name="level">Nivel</string>
+    <string name="logout">Sair</string>
+    <string name="txt_config">Configurações</string>
 
+    <string-array name="genero">
+        <item>M</item>
+        <item>F</item>
+        <item>Outros</item>
+    </string-array>
+
+    <string-array name="idioma">
+        <item>Idioma</item>
+        <item>Português</item>
+        <item>Inglês</item>
+        <item>Espanhol</item>
+    </string-array>
 </resources>

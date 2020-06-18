@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import techconnective.herokuapp.com.R
-import techconnective.herokuapp.com.SettingsDonateFragment
+import techconnective.herokuapp.com.configuracoes.SettingsDonateFragment
 
 class DonateAdapters(var arrayList: ArrayList<ListDonate>, var clickListener: SettingsDonateFragment) :
     RecyclerView.Adapter<DonateAdapters.ItemHolder>() {
