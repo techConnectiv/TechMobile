@@ -3,6 +3,7 @@ package techconnective.herokuapp.com
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import techconnective.herokuapp.com.login.MainActivity
 import java.lang.Exception
 
 class SplashScreenActivity : AppCompatActivity() {

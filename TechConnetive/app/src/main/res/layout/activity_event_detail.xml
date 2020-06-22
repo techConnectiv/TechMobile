@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".EventDetailActivity">
+    tools:context=".eventos.EventDetailActivity">
 
     <LinearLayout
         android:id="@+id/app_bar_layout"
@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="fill_vertical"
-            android:paddingStart="60dp"
+            android:paddingStart="20dp"
             android:text="@string/detail_event"
             android:textSize="20dp" />
 
@@ -66,5 +66,13 @@
             android:padding="12dp" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/endereco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:padding="12dp" />
 
 </LinearLayout>

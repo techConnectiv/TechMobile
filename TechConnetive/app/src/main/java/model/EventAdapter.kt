@@ -10,8 +10,9 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import techconnective.herokuapp.com.R
+import techconnective.herokuapp.com.menu.HomeFragment
 
-class EventAdapter(var arrayList: ArrayList<ListEvent>, var clickListener: OnClickEvent) :
+class EventAdapter(var arrayList: ArrayList<ListEvent>, var clickListener: HomeFragment) :
     RecyclerView.Adapter<EventAdapter.ItemHolder>() {
 
 

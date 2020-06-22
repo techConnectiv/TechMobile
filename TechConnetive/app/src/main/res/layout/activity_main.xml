@@ -4,7 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".login.MainActivity">
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:id="@+id/spinner"
+        android:drawableEnd="@drawable/ic_translate"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        />
+    <TextView
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_alignParentEnd="true"
+         />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="30dp"
-            android:text="TechConnective"
+            android:text="@string/app_name"
             android:textSize="40dp" />
 
         <ImageView
@@ -36,7 +55,7 @@
             android:background="@drawable/login_edit_background"
             android:drawableStart="@drawable/ic_person"
             android:drawablePadding="20dp"
-            android:hint="E-mail"
+            android:hint="@string/e_mail"
             android:inputType="textEmailAddress"
             android:padding="10dp" />
 
@@ -48,7 +67,7 @@
             android:background="@drawable/login_edit_background"
             android:drawableStart="@drawable/ic_password"
             android:drawablePadding="20dp"
-            android:hint="Digite a senha"
+            android:hint="@string/hint_senha"
             android:inputType="textPassword"
             android:padding="10dp" />
 
@@ -61,7 +80,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:text="Lembrar senha" />
+                android:text="@string/txt_salvar_credenciais" />
 
             <TextView
                 android:id="@+id/tv_forgot_password"
@@ -69,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:padding="10dp"
-                android:text="Esqueceu a senha?" />
+                android:text="@string/txt_troca_senha" />
         </RelativeLayout>
 
         <Button
@@ -79,7 +98,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginBottom="30dp"
             android:background="@drawable/button_background"
-            android:text="Entrar" />
+            android:text="@string/btn_logar" />
 
         <TextView
             android:id="@+id/btn_register_account"
@@ -87,7 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:padding="10dp"
-            android:text="Criar conta" />
+            android:text="@string/txt_criar_conta" />
 
     </LinearLayout>
 </RelativeLayout>

@@ -9,7 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import techconnective.herokuapp.com.DonateFragment
 import techconnective.herokuapp.com.R
 
 class OngAdapters(var arrayList: ArrayList<ListOng>, var clickListener: OnClickOng) :
@@ -37,7 +36,7 @@ class OngAdapters(var arrayList: ArrayList<ListOng>, var clickListener: OnClickO
         var listOng = itemView.findViewById<TextView>(R.id.title_text_view)
         var cardView = itemView.findViewById<CardView>(R.id.eventClickDonate)
 
-        fun initialize(item: ListOng, action: OngAdapters.OnClickOng) {
+        fun initialize(item: ListOng, action: OnClickOng) {
 
             icons.setImageResource(item.iconOng!!)
             listOng.text = item.listOng
