@@ -1,26 +1,22 @@
 package techconnective.herokuapp.com.menu
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import connection.task.GetAllOngTask
 import connection.task.GetOngTask
 import kotlinx.android.synthetic.main.fragment_serach.*
 import model.ListOng
 import model.OngListRecycler
 import techconnective.herokuapp.com.Ong.OngActivity
 import techconnective.herokuapp.com.R
-import java.util.*
 import kotlin.collections.ArrayList
 
 
@@ -37,6 +33,7 @@ class SearchFragment : Fragment(), OngListRecycler.OnClickOngRecycler {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val view = inflater.inflate(R.layout.fragment_serach, container, false)
 
         recyclerView = view.findViewById(R.id.recycler_ong)
@@ -48,8 +45,10 @@ class SearchFragment : Fragment(), OngListRecycler.OnClickOngRecycler {
         recyclerView?.adapter = OngListRecycler(arrayList!!, this)
 
         etOng = view.findViewById(R.id.et_ong) as EditText
+        val btnPesquisa = view.findViewById(R.id.btn_pesquisa) as ImageView
 
-        btn_pesquisa?.setOnClickListener {
+
+        btnPesquisa.setOnClickListener {
             val nomeOng = etOng?.text.toString()
             val result = GetOngTask().execute(nomeOng).get()
 
@@ -76,15 +75,6 @@ class SearchFragment : Fragment(), OngListRecycler.OnClickOngRecycler {
         }
 
         return view
-    }
-
-    @SuppressLint("WrongConstant")
-    private fun loadFragment(fragment: Fragment) {
-        val fragmentManager = activity!!.supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.container, fragment)
-        fragmentTransaction.addToBackStack(null)
-        fragmentTransaction.commit()
     }
 
     override fun onItemClick(item: ListOng, position: Int) {

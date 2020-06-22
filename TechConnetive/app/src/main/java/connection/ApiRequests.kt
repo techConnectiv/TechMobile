@@ -41,4 +41,5 @@ interface ApiRequests {
     @RequestLine("GET /ong/list")
     @Headers("Content-Type: application/json")
     fun getAllOng(): ArrayList<Instituicao>
+
 }

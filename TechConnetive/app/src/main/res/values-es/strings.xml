@@ -80,4 +80,5 @@
     <string name="falha">¡Fallo el registro! Verifique la información provista.</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hint_et_busca">Ongs y eventos</string>
+
 </resources>

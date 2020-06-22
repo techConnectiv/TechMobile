@@ -8,7 +8,6 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.google.firebase.auth.FirebaseAuth
 import techconnective.herokuapp.com.R
 
 class ForgotPasswordActivity : AppCompatActivity() {
@@ -17,8 +16,6 @@ class ForgotPasswordActivity : AppCompatActivity() {
 
     private var etEmail: EditText? = null
     private var btnSubmit: Button? = null
-
-    private var mAuth: FirebaseAuth? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,8 +27,6 @@ class ForgotPasswordActivity : AppCompatActivity() {
         etEmail = findViewById(R.id.et_email) as EditText
         btnSubmit = findViewById(R.id.btn_submit) as Button
 
-        mAuth = FirebaseAuth.getInstance()
-
         btnSubmit!!.setOnClickListener { sendPasswordEmail() }
     }
 
@@ -39,23 +34,23 @@ class ForgotPasswordActivity : AppCompatActivity() {
         val email = etEmail!!.text.toString()
 
         if (!TextUtils.isEmpty(email)) {
-            mAuth!!
-                .sendPasswordResetEmail(email)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        val message = "Email enviado."
-                        Log.d(TAG, message)
-                        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-
-                        updateUi()
-                    } else {
-                        Log.w(TAG, task.exception)
-                        Toast.makeText(
-                            this, "Nenhum usuario encontrado",
-                            Toast.LENGTH_LONG
-                        ).show()
-                    }
-                }
+//            mAuth!!
+//                .sendPasswordResetEmail(email)
+//                .addOnCompleteListener { task ->
+//                    if (task.isSuccessful) {
+//                        val message = "Email enviado."
+//                        Log.d(TAG, message)
+//                        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+//
+//                        updateUi()
+//                    } else {
+//                        Log.w(TAG, task.exception)
+//                        Toast.makeText(
+//                            this, "Nenhum usuario encontrado",
+//                            Toast.LENGTH_LONG
+//                        ).show()
+//                    }
+//                }
         } else {
             Toast.makeText(
                 this, "Campo vazio.",

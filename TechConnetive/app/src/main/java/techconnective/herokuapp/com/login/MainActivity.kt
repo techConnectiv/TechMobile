@@ -40,6 +40,10 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        button.setOnClickListener {
+            trocaIdioma("en")
+        }
+
         val adapter = ArrayAdapter.createFromResource(
             this,
             R.array.idioma,
@@ -150,6 +154,8 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             nProgressBar!!.setMessage(getString(R.string.verifica_user))
             nProgressBar!!.show()
 
+            Log.d(TAG, "Login do Usuário")
+
             val res = GetLoginTask().execute(
                 Credenciais(
                     email,
@@ -161,6 +167,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                 val user = res
 
                 Handler().postDelayed({
+
                     nProgressBar!!.hide()
                     updateUi(user)
                     Toast.makeText(
@@ -176,6 +183,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
         } else {
             Toast.makeText(this, getString(R.string.mais_detalhes), Toast.LENGTH_SHORT).show()
+            nProgressBar?.hide()
         }
     }
 

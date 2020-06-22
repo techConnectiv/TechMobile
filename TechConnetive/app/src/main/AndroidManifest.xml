@@ -13,15 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity
-            android:name=".Ong.OngActivity"
-            android:label="@string/title_activity_ong">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".Ong.OngActivity"></activity>
         <activity android:name=".doacao.DonateDetailActivity" />
         <activity android:name=".doacao.FormDonateActivity" />
         <activity android:name=".eventos.EventDetailActivity" />

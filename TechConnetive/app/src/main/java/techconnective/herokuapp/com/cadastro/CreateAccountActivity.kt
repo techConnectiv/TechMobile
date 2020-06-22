@@ -12,12 +12,10 @@ import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.afollestad.materialdialogs.MaterialDialog
 import connection.objetos.*
 import connection.task.GetCepTask
 import connection.task.PostCadastroTask
 import kotlinx.android.synthetic.main.activity_create_account.*
-import kotlinx.android.synthetic.main.activity_main.*
 import model.MaskEditUtil
 import techconnective.herokuapp.com.R
 import techconnective.herokuapp.com.login.MainActivity
@@ -180,8 +178,9 @@ class CreateAccountActivity : AppCompatActivity(), AdapterView.OnItemSelectedLis
             Handler().postDelayed({
                 updateUserInfoandUi()
             }, 2000)
-        }else {
+        } else {
             Toast.makeText(this, getString(R.string.falha), Toast.LENGTH_LONG).show()
+
         }
 
     }

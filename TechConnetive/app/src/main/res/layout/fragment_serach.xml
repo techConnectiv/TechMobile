@@ -34,9 +34,9 @@
                 android:id="@+id/btn_pesquisa"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="15dp"
-                android:layout_toEndOf="@id/et_ong"
                 android:layout_centerInParent="true"
+                android:layout_toEndOf="@id/et_ong"
+                android:padding="15dp"
                 android:src="@drawable/ic_search"
 
                 />
@@ -50,5 +50,17 @@
         android:background="#f1f1f1"
         android:padding="10dp" />
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/search_bg"
+        android:drawableEnd="@drawable/ic_search"
+        android:gravity="center"
+        android:hint="Ongs e eventos"
+        android:singleLine="true" />
 
 </LinearLayout>

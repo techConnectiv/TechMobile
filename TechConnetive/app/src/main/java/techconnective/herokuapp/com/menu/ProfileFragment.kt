@@ -57,7 +57,6 @@ class ProfileFragment : Fragment() {
         btnLogout = view.findViewById(R.id.ll_logout)
 
         btnLogout!!.setOnClickListener {
-
             nProgressBar!!.setMessage(getString(R.string.logout_user))
             nProgressBar!!.show()
 
