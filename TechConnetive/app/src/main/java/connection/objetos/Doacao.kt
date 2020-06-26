@@ -1,6 +1,6 @@
 package connection.objetos
 
-import java.time.LocalDate
+import java.util.*
 
 data class Doacao(
     val tipo: String,
@@ -8,5 +8,7 @@ data class Doacao(
     val descricao: String,
     val qnt: String,
     val comentario: String,
-    val validade: String
+    val validade: String,
+    val endereco: Endereco,
+    val nomeUser: String
 )

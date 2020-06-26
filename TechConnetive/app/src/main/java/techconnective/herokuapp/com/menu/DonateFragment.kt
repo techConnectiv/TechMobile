@@ -8,10 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import connection.objetos.Usuario
+import connection.task.GetAllOngTask
 import model.ListOng
 import model.OngAdapters
 import techconnective.herokuapp.com.R
@@ -126,23 +129,36 @@ class DonateFragment : Fragment(), OngAdapters.OnClickOng {
     override fun onItemClick(item: ListOng, position: Int) {
 
         val intent = Intent(context, FormDonateActivity::class.java)
+        val objectUser = getActivity()?.getIntent()?.getSerializableExtra("user") as Usuario
 
         intent.putExtra("icon", item.iconOng)
         intent.putExtra("nameOng", item.listOng)
         intent.putExtra("type", valueType)
+        intent.putExtra("user", objectUser)
+
         startActivity(intent)
 
     }
 
     private fun setDataInList() {
 
-        arrayList!!.add(ListOng(R.drawable.latter_a, "Todos Juntos", null, null))
-        arrayList!!.add(ListOng(R.drawable.latter_b, "AMAI", null, null))
-        arrayList!!.add(ListOng(R.drawable.latter_c, "SÓ BEBÊ", null, null))
-        arrayList!!.add(ListOng(R.drawable.latter_d, "YASMIN", null, null))
-        arrayList!!.add(ListOng(R.drawable.latter_e, "despertar", null, null))
-        arrayList!!.add(ListOng(R.drawable.latter_f, "Ágatha", null, null))
-        arrayList!!.add(ListOng(R.drawable.latter_g, "Erguendo VIDAS", null, null))
+        val result = GetAllOngTask().execute().get()
 
+        for (x in result) {
+            val address =
+                "Endereço da ONG:\n" +
+                        "${x.endereco.logradouro}, Nº ${x.endereco.numero}, ${x.endereco.bairro}, " +
+                        "${x.endereco.cidade}-${x.endereco.uf}, ${x.endereco.cep}"
+
+            arrayList!!.add(
+                ListOng(
+                    R.drawable.latter_a,
+                    x.nomeInst,
+                    x.credenciais.login,
+                    "1.8km",
+                    address
+                )
+            )
+        }
     }
 }

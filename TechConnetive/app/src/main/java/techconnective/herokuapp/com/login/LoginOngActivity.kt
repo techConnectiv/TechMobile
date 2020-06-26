@@ -1,60 +1,43 @@
 package techconnective.herokuapp.com.login
 
-import android.Manifest
 import android.app.ProgressDialog
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.content.res.Configuration
-import android.location.Location
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.text.TextUtils
-import android.util.Log
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.google.android.gms.common.ConnectionResult
-import com.google.android.gms.common.GoogleApiAvailability
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
-import com.google.android.gms.tasks.OnSuccessListener
 import connection.objetos.Credenciais
+import connection.task.GetLoginOngTask
 import connection.task.GetLoginTask
 import kotlinx.android.synthetic.main.activity_main.*
+import techconnective.herokuapp.com.OngActivity.DoantesOngActivity
 import techconnective.herokuapp.com.R
 import techconnective.herokuapp.com.cadastro.CreateAccountActivity
 import techconnective.herokuapp.com.menu.MenuActivity
 import java.io.Serializable
 import java.util.*
 
-@Suppress("DEPRECATION")
-class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
-
-    private val TAG = "LoginActivity"
+class LoginOngActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     private var tvFogotPassword: TextView? = null
     private var etUserName: TextView? = null
     private var etPassword: TextView? = null
     private var btnLogin: TextView? = null
     private var btnCreateAccount: TextView? = null
-    private var btnLoginOng: TextView? = null
+    private var btnLoginUser: TextView? = null
     private var nProgressBar: ProgressDialog? = null
     private var checkBoxGrava: CheckBox? = null
-    private var latitude: Double? = null
-    private var longitude: Double? = null
-
-    var client: FusedLocationProviderClient? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
+        setContentView(R.layout.activity_login_ong)
         val adapter = ArrayAdapter.createFromResource(
             this,
             R.array.idioma,
@@ -105,67 +88,6 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
         }
 
-        client = LocationServices.getFusedLocationProviderClient(this);
-    }
-
-    override fun onResume() {
-        super.onResume()
-        val errorCode = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this)
-        when (errorCode) {
-            ConnectionResult.SERVICE_MISSING, ConnectionResult.SERVICE_VERSION_UPDATE_REQUIRED, ConnectionResult.SERVICE_DISABLED -> {
-                Log.d("Teste", "show dialog")
-                GoogleApiAvailability.getInstance().getErrorDialog(
-                    this,
-                    errorCode,
-                    0,
-                    DialogInterface.OnCancelListener { ActivityCompat.finishAffinity(this) })
-                    .show()
-            }
-            ConnectionResult.SUCCESS -> Log.d(
-                "Teste",
-                "Google Play Services up-to-date"
-            )
-        }
-
-        if (ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        client!!.lastLocation
-            .addOnSuccessListener(OnSuccessListener { location ->
-
-                if (location != null) {
-//                    Toast.makeText(
-//                        this,
-//                        location.latitude.toString() + " " + location.longitude,
-//                        Toast.LENGTH_LONG
-//                    ).show()
-
-                    latitude = location.latitude
-                    longitude = location.longitude
-
-                } else {
-                    Toast.makeText(
-                        this,
-                        "Não foi possivel obter a localização! Por favor, ative o GPS.",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-            })
-            .addOnFailureListener { }
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -196,13 +118,13 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         etPassword = findViewById(R.id.pass_user_name)
         btnLogin = findViewById(R.id.entrar)
         btnCreateAccount = findViewById(R.id.btn_register_account)
-        btnLoginOng = findViewById(R.id.btn_login_ong)
+        btnLoginUser = findViewById(R.id.btn_login_user)
         nProgressBar = ProgressDialog(this)
 
         tvFogotPassword!!.setOnClickListener {
             startActivity(
                 Intent(
-                    this@MainActivity,
+                    this,
                     ForgotPasswordActivity::class.java
                 )
             )
@@ -211,16 +133,16 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         btnCreateAccount!!.setOnClickListener {
             startActivity(
                 Intent(
-                    this@MainActivity,
+                    this,
                     CreateAccountActivity::class.java
                 )
             )
         }
-        btnLoginOng!!.setOnClickListener {
+        btnLoginUser!!.setOnClickListener {
             startActivity(
                 Intent(
-                    this@MainActivity,
-                    LoginOngActivity::class.java
+                    this,
+                    MainActivity::class.java
                 )
             )
             finish()
@@ -237,7 +159,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             nProgressBar!!.setMessage(getString(R.string.verifica_user))
             nProgressBar!!.show()
 
-            val res = GetLoginTask().execute(
+            val res = GetLoginOngTask().execute(
                 Credenciais(
                     email,
                     password
@@ -250,16 +172,16 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                 Handler().postDelayed({
 
                     nProgressBar!!.hide()
-                    updateUi(user, latitude!!, longitude!!)
+                    updateUi(user)
                     Toast.makeText(
                         this,
-                        getString(R.string.recepcao) + ", ${user.nome}",
+                        getString(R.string.recepcao) + ", ${user.nomeInst}",
                         Toast.LENGTH_SHORT
                     ).show()
                 }, 1000)
             } else {
                 nProgressBar!!.hide()
-                Toast.makeText(this@MainActivity, getString(R.string.not_user), Toast.LENGTH_SHORT)
+                Toast.makeText(this, getString(R.string.not_user), Toast.LENGTH_SHORT)
                     .show()
             }
         } else {
@@ -268,13 +190,11 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         }
     }
 
-    private fun updateUi(user: Serializable, latitude: Double, longitude: Double) {
-        val intent = Intent(this@MainActivity, MenuActivity::class.java)
+    private fun updateUi(user: Serializable) {
+        val intent = Intent(this, DoantesOngActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         intent.putExtra("user", user)
-        intent.putExtra("latitude", latitude.toString())
-        intent.putExtra("longitude", longitude.toString())
         startActivity(intent)
         finish()
     }

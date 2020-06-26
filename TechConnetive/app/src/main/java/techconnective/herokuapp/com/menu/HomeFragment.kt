@@ -1,11 +1,13 @@
 package techconnective.herokuapp.com.menu
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,16 +17,20 @@ import model.EventAdapter
 import model.ListEvent
 import techconnective.herokuapp.com.R
 import techconnective.herokuapp.com.eventos.EventDetailActivity
+import java.sql.Time
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
+
 class HomeFragment : Fragment(), EventAdapter.OnClickEvent {
+
 
     private var recyclerView: RecyclerView? = null
     private var arrayList: ArrayList<ListEvent>? = null
     private var linearLayoutManager: LinearLayoutManager? = null
     private var name_user: TextView? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,8 +39,10 @@ class HomeFragment : Fragment(), EventAdapter.OnClickEvent {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
-        recyclerView = view.findViewById(R.id.recycler_view)
+        //Toast.makeText(context, localidade, Toast.LENGTH_LONG).show()
+
         name_user = view.findViewById(R.id.name_user)
+        recyclerView = view.findViewById(R.id.recycler_view)
 
         linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         recyclerView?.layoutManager = linearLayoutManager
@@ -53,7 +61,7 @@ class HomeFragment : Fragment(), EventAdapter.OnClickEvent {
         intent.putExtra("icon", item.iconOng)
         intent.putExtra("nameEvent", item.listEvent)
         intent.putExtra("data", item.data)
-        intent.putExtra("hora", item.hora)
+        //intent.putExtra("hora", item.hora)
         intent.putExtra("description", item.description)
         intent.putExtra("endereco", item.endereco)
 
@@ -76,9 +84,7 @@ class HomeFragment : Fragment(), EventAdapter.OnClickEvent {
                 ListEvent(
                     R.drawable.latter_a,
                     x.nomeOng,
-                    getDateTime(x.data)
-                    ,
-                    "08hrs - 16hrs",
+                    getDateTime(x.data),
                     x.descricao,
                     address
                 )
@@ -86,11 +92,16 @@ class HomeFragment : Fragment(), EventAdapter.OnClickEvent {
         }
     }
 
+    @SuppressLint("SimpleDateFormat")
     private fun getDateTime(s: String): String? {
         try {
-            val sdf = SimpleDateFormat("MM/dd/yyyy")
+            val sdf = SimpleDateFormat("dd/MM/yyyy")
             val netDate = Date(s.toLong())
-            return sdf.format(netDate)
+
+            val time = SimpleDateFormat("hh:mm")
+            val netTime = Time(s.toLong())
+
+            return "${sdf.format(netDate)} ${time.format(netTime)}"
         } catch (e: Exception) {
             return e.toString()
         }

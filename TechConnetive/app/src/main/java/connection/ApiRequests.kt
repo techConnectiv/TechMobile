@@ -12,6 +12,10 @@ interface ApiRequests {
     @Headers("Content-Type: application/json")
     fun login(user: Credenciais): Usuario
 
+    @RequestLine("POST /login/ong")
+    @Headers("Content-Type: application/json")
+    fun loginOng(ong: Credenciais): Ong
+
     @RequestLine("POST /usuario/criar")
     @Headers("Content-Type: application/json")
     fun cadastro(user: Usuario): String

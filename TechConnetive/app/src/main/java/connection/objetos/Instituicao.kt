@@ -8,5 +8,6 @@ data class Instituicao(
     val credenciais: Credenciais,
     val cnpj: String,
     val endereco: Endereco,
-    val contato: Contato
+    val contato: Contato,
+    val geolocalizacao: Geolocalizacao
 ): Serializable

@@ -15,14 +15,14 @@ class EventDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportActionBar?.hide();
+        supportActionBar?.hide()
         setContentView(R.layout.activity_event_detail)
 
-        var btnBack = findViewById<ImageView>(R.id.return_events)
+        val btnBack = findViewById<ImageView>(R.id.return_events)
 
         btnBack?.setOnClickListener {
 
-            fadein(btnBack!!)
+            fadein(btnBack)
 
             val intent = Intent(this, MenuActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK

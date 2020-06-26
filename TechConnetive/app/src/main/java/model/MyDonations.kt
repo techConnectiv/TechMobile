@@ -8,11 +8,11 @@ import android.view.animation.Animation
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import techconnective.herokuapp.com.OngActivity.DoantesOngActivity
 import techconnective.herokuapp.com.R
-import techconnective.herokuapp.com.configuracoes.SettingsDonateFragment
 
-class DonateAdapters(var arrayList: ArrayList<ListDonate>, var clickListener: SettingsDonateFragment) :
-    RecyclerView.Adapter<DonateAdapters.ItemHolder>() {
+class MyDonations (var arrayList: ArrayList<ListDoacaoOng>, var clickListener: DoantesOngActivity) :
+    RecyclerView.Adapter<MyDonations.ItemHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
@@ -27,7 +27,7 @@ class DonateAdapters(var arrayList: ArrayList<ListDonate>, var clickListener: Se
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
 
-            holder.initialize(arrayList.get(position), clickListener)
+        holder.initialize(arrayList.get(position), clickListener)
     }
 
     class ItemHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -37,10 +37,10 @@ class DonateAdapters(var arrayList: ArrayList<ListDonate>, var clickListener: Se
         var itemDoado = itemView.findViewById<TextView>(R.id.txt_item)
         var cardView = itemView.findViewById<CardView>(R.id.eventClickHistoric)
 
-        fun initialize(item: ListDonate, action: OnClickDonate) {
+        fun initialize(item: ListDoacaoOng, action: OnClickDonate) {
 
             //icons.setImageResource(item.iconOng!!)
-            nomeOng.text = item.nomeOng
+            nomeOng.text = item.nomeUsuario
             data.text = item.data
             itemDoado.text = item.itemDoado
 
@@ -61,6 +61,6 @@ class DonateAdapters(var arrayList: ArrayList<ListDonate>, var clickListener: Se
     }
 
     interface OnClickDonate {
-        fun onItemClick(arrayList: ListDonate, position: Int)
+        fun onItemClick(arrayList: ListDoacaoOng, position: Int)
     }
 }

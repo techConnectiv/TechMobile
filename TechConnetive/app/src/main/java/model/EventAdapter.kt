@@ -44,7 +44,7 @@ class EventAdapter(var arrayList: ArrayList<ListEvent>, var clickListener: HomeF
             icons.setImageResource(item.iconOng!!)
             listEvent.text = item.listEvent
             data.text = item.data
-            hora.text = item.hora
+            //hora.text = item.hora
 
             itemView.setOnClickListener {
                 action.onItemClick(item, adapterPosition)

@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
 import connection.objetos.Doacao
+import connection.objetos.Usuario
 import connection.task.PostDonateTask
 import kotlinx.android.synthetic.main.activity_form_donate.*
 import techconnective.herokuapp.com.R
@@ -34,7 +35,7 @@ class FormDonateActivity : AppCompatActivity() {
     private var comentDonate: EditText? = null
 
     @RequiresApi(Build.VERSION_CODES.O)
-    @SuppressLint("SetTextI18n")
+    @SuppressLint("SetTextI18n", "SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
@@ -79,11 +80,10 @@ class FormDonateActivity : AppCompatActivity() {
                 val descricao = whatDonate?.text.toString()
                 val quantidade = qntDonate?.text.toString()
                 val comentario = comentDonate?.text.toString()
-
-                val formataData = SimpleDateFormat("yyyy-MM-dd")
+                val user = intent.extras!!.getSerializable("user") as Usuario
 
                 val data = Date()
-                val dataFormatada = formataData.format(data)
+                val dataFormatada = SimpleDateFormat("yyyy-MM-dd").format(data)
 
                 val res = PostDonateTask().execute(
                     Doacao(
@@ -92,7 +92,9 @@ class FormDonateActivity : AppCompatActivity() {
                         descricao,
                         quantidade,
                         comentario,
-                        dataFormatada
+                        dataFormatada,
+                        user.endereco,
+                        user.nome
                     )
                 ).get()
 
@@ -105,16 +107,16 @@ class FormDonateActivity : AppCompatActivity() {
                     Handler().postDelayed({
                         Intent(this, MenuActivity::class.java)
                         finishAndRemoveTask()
-                    }, 1500)
-                }else{
-                    Toast.makeText(this, "${res}", Toast.LENGTH_LONG).show()
+                    }, 2000)
+                } else {
+                    Toast.makeText(this, res, Toast.LENGTH_LONG).show()
                 }
             }
         }
 
         btnBack?.setOnClickListener {
 
-            fadein(btnBack!!)
+            fadein(btnBack)
 
             val intent = Intent(this, DonateFragment::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK

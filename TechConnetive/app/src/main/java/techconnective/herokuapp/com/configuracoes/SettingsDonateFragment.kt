@@ -1,5 +1,6 @@
 package techconnective.herokuapp.com.configuracoes
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,11 +10,10 @@ import android.view.ViewGroup
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import connection.objetos.Doacao
-import connection.task.GetCepTask
+import connection.objetos.Usuario
 import connection.task.GetDonateTask
 import model.DonateAdapters
 import model.ListDonate
@@ -77,23 +77,29 @@ class SettingsDonateFragment : Fragment(), DonateAdapters.OnClickDonate {
     private fun setDataInList() {
 
         val result: ArrayList<Doacao> = GetDonateTask().execute().get()
+        val objectUser = getActivity()?.getIntent()?.getSerializableExtra("user") as Usuario
 
         for (x in result) {
-            arrayList!!.add(
-                ListDonate(
-                    x.nomeOng, getDateTime(x.validade)
-                    , "13:47",
-                    x.qnt.toInt(), x.descricao
+
+            if (x.nomeUser == objectUser.nome){
+                arrayList!!.add(
+                    ListDonate(
+                        x.nomeOng, getDateTime(x.validade)
+                        , "13:47",
+                        x.qnt.toInt(), x.descricao
+                    )
                 )
-            )
+            }
         }
     }
 
+    @SuppressLint("SimpleDateFormat")
     private fun getDateTime(s: String): String? {
         try {
-            val sdf = SimpleDateFormat("MM/dd/yyyy")
-            val netDate = Date(s.toLong())
-            return sdf.format(netDate)
+            val data = SimpleDateFormat("dd/MM/yyyy").format(s.toLong())
+            val hora = SimpleDateFormat("HH:mm:ss").format(s.toLong())
+
+            return data + " " + "|" + " " + hora
         } catch (e: Exception) {
             return e.toString()
         }

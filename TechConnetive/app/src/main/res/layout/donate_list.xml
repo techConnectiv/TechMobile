@@ -22,31 +22,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="nomeOng"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/txt_hora_donate"
+            android:id="@+id/txt_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/txt_user_donate"
             android:layout_alignStart="@id/txt_user_donate"
             android:ellipsize="marquee"
             android:singleLine="true"
-            android:text="Horário"
-            android:textSize="15dp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/txt_data_donate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txt_hora_donate"
+            android:layout_below="@id/txt_item"
             android:layout_alignStart="@id/txt_user_donate"
             android:layout_marginEnd="20dp"
             android:ellipsize="marquee"
             android:singleLine="true"
-            android:text="Data"
-            android:textSize="15dp" />
+            android:textSize="15sp" />
 
         <ImageView
             android:layout_width="20dp"
