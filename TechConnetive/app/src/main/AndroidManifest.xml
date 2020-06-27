@@ -13,10 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OngActivity.DoacaoInfoActivity"></activity>
+        <activity android:name=".OngActivity.DoacaoInfoActivity" />
         <activity android:name=".OngActivity.DoantesOngActivity" />
         <activity android:name=".login.LoginOngActivity" />
-        <activity android:name=".Ong.techconnective.herokuapp.com.OngActivity" />
+        <activity android:name=".Ong.OngActivity" />
         <activity android:name=".doacao.DonateDetailActivity" />
         <activity android:name=".doacao.FormDonateActivity" />
         <activity android:name=".eventos.EventDetailActivity" />
